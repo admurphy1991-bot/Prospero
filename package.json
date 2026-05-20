@@ -1,0 +1,12 @@
+{
+  "name": "prospero-site",
+  "version": "1.0.0",
+  "description": "Prospero marketing site",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
