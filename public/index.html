@@ -468,6 +468,117 @@
       font-weight: 300;
     }
 
+    /* CASE STUDY */
+    .cs-divider {
+      margin-top: 96px;
+      padding-top: 96px;
+      border-top: 1px solid var(--grid-line-strong);
+    }
+
+    .cs-intro-text {
+      margin-top: 16px;
+      max-width: 640px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--grey-light);
+      font-weight: 300;
+    }
+
+    .cs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--grid-line-strong);
+      border: 1px solid var(--grid-line-strong);
+      margin-top: 48px;
+    }
+
+    .cs-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      background: var(--navy-mid);
+    }
+
+    .cs-label-col {
+      padding: 44px;
+      border-right: 1px solid var(--grid-line-strong);
+    }
+
+    .cs-index {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .cs-label-col h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.35;
+    }
+
+    .cs-content {
+      padding: 44px;
+    }
+
+    .cs-content p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--grey-light);
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .cs-content p:last-child { margin-bottom: 0; }
+
+    .cs-quote {
+      border-left: 2px solid var(--blue);
+      padding-left: 20px;
+      margin: 24px 0;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--off-white);
+      line-height: 1.6;
+    }
+
+    .cs-quote-attr {
+      display: block;
+      margin-top: 10px;
+      font-size: 13px;
+      font-style: normal;
+      color: var(--grey);
+    }
+
+    .cs-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .cs-images.single { grid-template-columns: 1fr; max-width: 480px; }
+
+    .cs-image-card {
+      border: 1px solid var(--grid-line-strong);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .cs-image-card img { width: 100%; display: block; }
+
+    .cs-image-caption {
+      padding: 12px 16px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--grey);
+      border-top: 1px solid var(--grid-line-strong);
+    }
+
     /* FEATURES */
     .section-features {
       padding: 120px 60px;
@@ -821,6 +932,9 @@
       .feature-row { grid-template-columns: 1fr; }
       .feature-label { border-right: none; border-bottom: 1px solid var(--grid-line-strong); }
       .how-steps::before { display: none; }
+      .cs-row { grid-template-columns: 1fr; }
+      .cs-label-col { border-right: none; border-bottom: 1px solid var(--grid-line-strong); }
+      .cs-images { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 24px; text-align: center; }
       .footer-links { flex-wrap: wrap; justify-content: center; }
     }
@@ -861,6 +975,11 @@
 
       .how-steps { grid-template-columns: 1fr; gap: 32px; }
       .how-step { padding: 0; }
+
+      .cs-divider { margin-top: 56px; padding-top: 56px; }
+      .cs-label-col { padding: 28px 24px; }
+      .cs-content { padding: 24px; }
+      .cs-images { gap: 12px; }
 
       .feature-label { padding: 28px 24px; }
       .feature-content { padding: 24px 24px 32px; flex-direction: column; align-items: flex-start; gap: 16px; }
@@ -1025,13 +1144,71 @@
         <p>Organised by asset, component and task — complete with compliance and warranty tagging, ready to action.</p>
       </div>
     </div>
-    <div style="margin-top: 72px; border: 1px solid var(--grid-line-strong); overflow: hidden; border-radius: 4px; position: relative; padding-bottom: 56.25%; height: 0;">
-      <iframe
-        src="https://www.loom.com/embed/e0b638fdf32f46a1aaad38ac4a177f42"
-        frameborder="0"
-        allowfullscreen
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-      </iframe>
+    <div class="cs-divider">
+      <p class="section-label">Case study — 40m Office Building</p>
+      <p class="cs-intro-text">A Senior Facilities Manager put this into practice on a live building. Here's what it caught.</p>
+
+      <div class="cs-list">
+        <div class="cs-row">
+          <div class="cs-label-col">
+            <div class="cs-index">01</div>
+            <h3>The gap it caught: The Plumbing Company's missing pump contract</h3>
+          </div>
+          <div class="cs-content">
+            <p>He used Prospero to ingest the O&amp;M manual for the 40m Office Building and quickly identified that the sewer and stormwater pumping systems had no service contract in place at all — they simply weren't covered by The Plumbing Company's existing scope. Rather than working through this manually, he had the full task list, with suggested frequencies, ready to send to them in about 20 minutes.</p>
+            <div class="cs-quote">
+              "If you have a look below I was able to get that email together in about 20 minutes instead of spending half a day going through the manual."
+              <span class="cs-quote-attr">— Senior Facilities Manager</span>
+            </div>
+            <p>Below is the actual task breakdown Prospero generated for the Sewer Pumping System before a contractor was assigned, followed by the Stormwater Pumping System after The Plumbing Company was added to cover it — the same structure, now with clear ownership.</p>
+            <div class="cs-images">
+              <div class="cs-image-card">
+                <img src="case-study/before-no-contractor.png" alt="Prospero task list for the Sewer Pumping System with no contractor assigned" loading="lazy" />
+                <div class="cs-image-caption">Before: Prospero flags 20 tasks across 5 components with no contractor assigned.</div>
+              </div>
+              <div class="cs-image-card">
+                <img src="case-study/after-hanlon-assigned.png" alt="Prospero task list for the Stormwater Pumping System with The Plumbing Company assigned" loading="lazy" />
+                <div class="cs-image-caption">After: The Plumbing Company added against every task, with the same frequencies carried straight into their contract scope.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-row">
+          <div class="cs-label-col">
+            <div class="cs-index">02</div>
+            <h3>Judgement calls, not just checklists</h3>
+          </div>
+          <div class="cs-content">
+            <p>Prospero doesn't just extract manufacturer-recommended frequencies — he used it to sense-check them against reality. The Rheem hot water cylinder's manual called for monthly servicing to preserve the warranty, but as he put it:</p>
+            <div class="cs-quote">
+              "That's never going to happen. The cost would pay for a new unit in 2 years."
+              <span class="cs-quote-attr">— Senior Facilities Manager</span>
+            </div>
+            <p>Having the full task list in front of him, with frequencies he could see and adjust, meant that call was made deliberately — rather than either ignoring the manual entirely or committing to an uneconomical service regime by default.</p>
+          </div>
+        </div>
+
+        <div class="cs-row">
+          <div class="cs-label-col">
+            <div class="cs-index">03</div>
+            <h3>The feature he rates most highly: compliance vs. warranty</h3>
+          </div>
+          <div class="cs-content">
+            <p>What he singled out as the standout feature is Prospero's automatic tagging of tasks as Compliance or Warranty — separating legally-required items (like annual backflow device testing under NZ BWoF) from manufacturer warranty conditions that are easy to lose track of, such as facade and roof checks.</p>
+            <div class="cs-quote">
+              "Prospero being able to identify warranty items that fall outside of the compliance schedule, such as facade and roof checks, is a game changer. If I miss those, I could lose my job. So, Prospero making this easier means I want this on all my buildings."
+              <span class="cs-quote-attr">— Senior Facilities Manager</span>
+            </div>
+            <div class="cs-images single">
+              <div class="cs-image-card">
+                <img src="case-study/facade-warranty-overdue.png" alt="Facade and roof checks flagged as overdue under the Sto Render System warranty" loading="lazy" />
+                <div class="cs-image-caption">Facade and roof checks under the Sto Render System warranty — flagged and overdue, exactly the kind of item he means.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
