@@ -5,11 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Book a Demo — Prospero</title>
 <meta name="description" content="30 minutes with the Prospero team. See how your O&amp;M documentation becomes a live, traceable maintenance plan." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/favicon.png" />
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
 <style>
+  @font-face{
+    font-family:'PP Supply Sans';
+    src:url('assets/fonts/PPSupplySans-Regular.woff2') format('woff2'),
+        url('assets/fonts/PPSupplySans-Regular.otf') format('opentype');
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
   :root{
     --ink:#0a0a0a;
     --ink-70:rgba(10,10,10,.68);
@@ -19,26 +26,40 @@
     --paper:#ffffff;
     --fog:#f2f4fa;
     --line:#e0e3ee;
-    --mono:'IBM Plex Mono', ui-monospace, monospace;
-    --display:'Archivo', sans-serif;
-    --body:'Inter', sans-serif;
+    --mono:'PP Supply Sans', ui-monospace, monospace;
+    --display:'PP Supply Sans', sans-serif;
+    --body:'PP Supply Sans', sans-serif;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  strong,b{font-weight:400;}
   body{font-family:var(--body);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;min-height:100vh;}
   a{color:inherit;}
   img{display:block;max-width:100%;}
 
-  header{border-bottom:1px solid var(--line);}
+  header{
+    position:sticky;top:0;z-index:200;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
   nav{
     max-width:1180px;margin:0 auto;padding:0 32px;height:76px;
     display:flex;align-items:center;justify-content:space-between;
   }
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
   .logo img{height:26px;width:auto;}
+  .navlinks{display:flex;align-items:center;gap:36px;}
+  .navlinks a{
+    font-size:14.5px;font-weight:400;text-decoration:none;color:var(--ink-70);
+    transition:color .15s ease;
+  }
+  .navlinks a:hover{color:var(--ink);}
   .nav-back{
-    font-size:14px;font-weight:500;color:var(--ink-70);text-decoration:none;
+    font-size:14px;font-weight:400;color:var(--ink-70);text-decoration:none;
     display:flex;align-items:center;gap:8px;transition:color .15s ease;
   }
   .nav-back:hover{color:var(--ink);}
+  @media (max-width:720px){.navlinks{display:none;}}
 
   .page{
     max-width:1180px;margin:0 auto;padding:0 32px;
@@ -55,7 +76,7 @@
   }
   .eyebrow::before{content:'';width:16px;height:1px;background:var(--blue);display:inline-block;}
   h1{
-    font-family:var(--display);font-weight:800;font-size:clamp(30px,3.4vw,42px);
+    font-family:var(--display);font-weight:400;font-size:clamp(30px,3.4vw,42px);
     line-height:1.08;letter-spacing:-.01em;color:var(--ink);margin-bottom:18px;
   }
   h1 em{font-style:normal;color:var(--blue);}
@@ -68,7 +89,7 @@
   .expect-item{display:flex;align-items:flex-start;gap:13px;}
   .expect-dot{width:6px;height:6px;background:var(--blue);flex:none;margin-top:7px;border-radius:1px;}
   .expect-item p{font-size:14px;line-height:1.6;color:var(--ink-70);}
-  .expect-item p strong{color:var(--ink);font-weight:600;}
+  .expect-item p strong{color:var(--ink);font-weight:400;}
   .left-bottom{margin-top:56px;padding-top:32px;border-top:1px solid var(--line);}
   .left-bottom p{font-size:13px;color:var(--ink-50);line-height:1.6;}
   .left-bottom a{color:var(--blue);text-decoration:none;}
@@ -90,6 +111,12 @@
 <header>
   <nav>
     <a href="/" class="logo"><img src="assets/logo-lockup-blue.png" alt="Prospero" /></a>
+    <div class="navlinks">
+      <a href="/#how">How it works</a>
+      <a href="/#features">Product</a>
+      <a href="/#who">Who it's for</a>
+      <a href="/#outcomes">Outcomes</a>
+    </div>
     <a href="/" class="nav-back">← Back to site</a>
   </nav>
 </header>

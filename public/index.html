@@ -5,10 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Prospero — Your O&amp;M manuals, finally actionable</title>
 <meta name="description" content="Prospero reads your O&amp;M manuals and generates a complete, traceable maintenance programme — asset register, compliance schedule and lifecycle forecasting included — in minutes." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/favicon.png" />
 <style>
+  @font-face{
+    font-family:'PP Supply Sans';
+    src:url('assets/fonts/PPSupplySans-Regular.woff2') format('woff2'),
+        url('assets/fonts/PPSupplySans-Regular.otf') format('opentype');
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
   :root{
     --ink:#0a0a0a;
     --ink-70:rgba(10,10,10,.68);
@@ -21,12 +28,13 @@
     --fog-deep:#e7eaf5;
     --line:#e0e3ee;
     --amber:#dd8f1f;
-    --mono:'IBM Plex Mono', ui-monospace, monospace;
-    --display:'Archivo', sans-serif;
-    --body:'Inter', sans-serif;
+    --mono:'PP Supply Sans', ui-monospace, monospace;
+    --display:'PP Supply Sans', sans-serif;
+    --body:'PP Supply Sans', sans-serif;
     --container:1180px;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  strong,b{font-weight:400;}
   html{scroll-behavior:smooth;}
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
   body{
@@ -54,10 +62,10 @@
     width:16px;height:1px;background:var(--blue);
     display:inline-block;
   }
-  h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.01em;line-height:1.04;}
+  h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.01em;line-height:1.04;}
   .btn{
     font-family:var(--body);
-    font-weight:600;
+    font-weight:400;
     font-size:15px;
     padding:13px 24px;
     border-radius:3px;
@@ -92,7 +100,7 @@
   .logo img{height:26px;width:auto;}
   .navlinks{display:flex;align-items:center;gap:36px;}
   .navlinks a{
-    font-size:14.5px;font-weight:500;text-decoration:none;color:var(--ink-70);
+    font-size:14.5px;font-weight:400;text-decoration:none;color:var(--ink-70);
     transition:color .15s ease;
   }
   .navlinks a:hover{color:var(--ink);}
@@ -136,12 +144,13 @@
     display:grid;grid-template-columns:repeat(3,1fr);
   }
   .stat{
-    padding:30px 0 30px;
+    padding:30px 28px;
     border-right:1px solid var(--line);
   }
+  .stat:first-child{padding-left:0;}
   .stat:last-child{border-right:none;}
   .stat b{
-    font-family:var(--mono);font-weight:600;font-size:clamp(30px,3.4vw,42px);
+    font-family:var(--mono);font-weight:400;font-size:clamp(30px,3.4vw,42px);
     color:var(--ink);display:block;letter-spacing:-.02em;
   }
   .stat span{font-size:13.5px;color:var(--ink-50);}
@@ -161,14 +170,14 @@
     display:flex;align-items:center;gap:8px;margin-bottom:22px;
   }
   .mark{width:13px;height:13px;flex:none;}
-  .problem-card h3{font-size:18px;font-weight:700;font-family:var(--body);margin-bottom:10px;color:var(--ink);}
+  .problem-card h3{font-size:18px;font-weight:400;font-family:var(--body);margin-bottom:10px;color:var(--ink);}
   .problem-card p{font-size:14.5px;color:var(--ink-70);line-height:1.55;}
 
   /* ===== HOW IT WORKS ===== */
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative;}
   .step{position:relative;padding-top:26px;border-top:2px solid var(--ink);}
   .step .num{font-family:var(--mono);font-size:13px;color:var(--ink-50);display:block;margin-bottom:14px;}
-  .step h3{font-family:var(--body);font-size:17px;font-weight:700;margin-bottom:10px;}
+  .step h3{font-family:var(--body);font-size:17px;font-weight:400;margin-bottom:10px;}
   .step p{font-size:14.5px;color:var(--ink-70);line-height:1.55;}
   .step.active-step{border-top-color:var(--blue);}
   .step.active-step .num{color:var(--blue);}
@@ -186,7 +195,7 @@
     letter-spacing:.08em;background:rgba(221,143,31,.1);border:1px solid rgba(221,143,31,.35);
     padding:4px 9px;border-radius:3px;display:inline-block;margin-bottom:18px;
   }
-  .feature-copy h3{font-size:26px;font-family:var(--display);font-weight:800;color:var(--ink);margin-bottom:14px;line-height:1.15;}
+  .feature-copy h3{font-size:26px;font-family:var(--display);font-weight:400;color:var(--ink);margin-bottom:14px;line-height:1.15;}
   .feature-copy p.desc{font-size:15.5px;color:var(--ink-70);line-height:1.6;margin-bottom:22px;}
   .feature-bullets{list-style:none;display:flex;flex-direction:column;gap:12px;}
   .feature-bullets li{
@@ -222,7 +231,7 @@
   }
   .who-item{padding:18px 0;border-top:1px solid var(--line);}
   .who-item:first-of-type{border-top:none;}
-  .who-item h5{font-family:var(--body);font-size:16px;font-weight:700;margin-bottom:6px;}
+  .who-item h5{font-family:var(--body);font-size:16px;font-weight:400;margin-bottom:6px;}
   .who-item p{font-size:14px;color:var(--ink-70);line-height:1.55;}
 
   /* ===== CASE STUDY ===== */
@@ -247,13 +256,13 @@
   /* ===== OUTCOMES ===== */
   .outcomes{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
   .outcome{background:var(--paper);padding:32px 26px;}
-  .outcome h3{font-family:var(--body);font-size:16.5px;font-weight:700;margin-bottom:10px;}
+  .outcome h3{font-family:var(--body);font-size:16.5px;font-weight:400;margin-bottom:10px;}
   .outcome p{font-size:14px;color:var(--ink-70);line-height:1.55;}
 
   /* ===== TESTIMONIALS ===== */
   .testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
   .testi{background:var(--paper);padding:44px;}
-  .testi p{font-size:17px;line-height:1.55;color:var(--ink);margin-bottom:22px;font-family:var(--display);font-weight:700;letter-spacing:-.005em;}
+  .testi p{font-size:17px;line-height:1.55;color:var(--ink);margin-bottom:22px;font-family:var(--display);font-weight:400;letter-spacing:-.005em;}
   .testi cite{font-family:var(--mono);font-size:12px;color:var(--ink-50);font-style:normal;text-transform:uppercase;letter-spacing:.04em;}
 
   /* ===== FINAL CTA ===== */
@@ -492,8 +501,8 @@
         <line x1="200" y1="52" x2="200" y2="130" stroke="#ffffff" stroke-width="1" stroke-dasharray="3 4" opacity=".5"/>
 
         <!-- segment labels -->
-        <text x="16" y="52" fill="rgba(255,255,255,.7)" font-family="IBM Plex Mono, monospace" font-size="14">BWoF / compliance schedule</text>
-        <text x="984" y="52" fill="#ffffff" font-family="IBM Plex Mono, monospace" font-size="14" text-anchor="end">Full maintenance obligation</text>
+        <text x="16" y="52" fill="rgba(255,255,255,.7)" font-family="PP Supply Sans, sans-serif" font-size="14">BWoF / compliance schedule</text>
+        <text x="984" y="52" fill="#ffffff" font-family="PP Supply Sans, sans-serif" font-size="14" text-anchor="end">Full maintenance obligation</text>
 
         <!-- dimension line marking the gap -->
         <g stroke="rgba(255,255,255,.45)" stroke-width="1">
@@ -511,7 +520,7 @@
           <line x1="-5" y1="-5" x2="5" y2="5"/>
           <line x1="-5" y1="5" x2="5" y2="-5"/>
         </g>
-        <text x="600" y="228" fill="rgba(255,255,255,.75)" font-family="IBM Plex Mono, monospace" font-size="13.5" text-anchor="middle" letter-spacing="0.02em">THE GAP — WHERE LIABILITY ACCUMULATES, UNMANAGED</text>
+        <text x="600" y="228" fill="rgba(255,255,255,.75)" font-family="PP Supply Sans, sans-serif" font-size="13.5" text-anchor="middle" letter-spacing="0.02em">THE GAP — WHERE LIABILITY ACCUMULATES, UNMANAGED</text>
       </svg>
     </div>
     <p class="gap-note reveal">That gap is where deferred maintenance liability accumulates — silently, until it surfaces. Prospero shows the full picture: structured, traceable, complete.</p>
@@ -633,7 +642,7 @@
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <img src="assets/logo-lockup-blue.png" alt="Prospero" />
+      <img src="assets/logo-lockup-dark.png" alt="Prospero" />
       <div class="foot-links">
         <a href="#how">How it works</a>
         <a href="#features">Product</a>
