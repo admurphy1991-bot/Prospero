@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Prospero — Your O&amp;M manuals, finally actionable</title>
-<meta name="description" content="Prospero reads your O&amp;M manuals and generates a complete, traceable maintenance programme — asset register, compliance schedule and lifecycle forecasting included — in minutes." />
+<title>Prospero — Your building documents, finally actionable</title>
+<meta name="description" content="Prospero reads the documentation you already have, from O&amp;M manuals and data sheets to council property files, and turns it into a complete, traceable maintenance programme in minutes." />
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/favicon.png" />
 <style>
   @font-face{
     font-family:'PP Supply Sans';
-    src:url('assets/fonts/PPSupplySans-Regular.woff2') format('woff2'),
-        url('assets/fonts/PPSupplySans-Regular.otf') format('opentype');
+    src:url('/assets/fonts/PPSupplySans-Regular.woff2') format('woff2');
     font-weight:400;
     font-style:normal;
     font-display:swap;
@@ -273,7 +272,7 @@
   .final-cta .wrap{position:relative;z-index:2;}
   .final-cta::before{
     content:'';position:absolute;inset:0;
-    background:url('assets/hero-halftone.png') center/cover;
+    background:url('/assets/hero-halftone.png') center/cover;
     opacity:.16;filter:invert(1) grayscale(1);
   }
   .final-cta h2{font-size:clamp(30px,4vw,46px);max-width:680px;margin:18px auto 20px;color:var(--paper);}
@@ -325,19 +324,150 @@
 
     .case-head{align-items:flex-start;}
   }
+  .source-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .source-card{background:var(--paper);padding:30px 26px;min-width:0;}
+  .source-card .num{font-family:var(--mono);font-size:13px;color:var(--blue);display:block;margin-bottom:16px;}
+  .source-card h3{font-family:var(--body);font-size:18px;margin-bottom:10px;line-height:1.2;}
+  .source-card p{font-size:14.5px;color:var(--ink-70);line-height:1.55;}
+  .pf-callout{margin-top:48px;background:var(--blue-deep);color:var(--paper);border-radius:3px;padding:48px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+  .pf-callout > *{min-width:0;}
+  .pf-callout .pftag{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#7fa0ff;border:1px solid rgba(127,160,255,.45);padding:5px 10px;border-radius:2px;margin-bottom:20px;}
+  .pf-callout h3{font-size:clamp(26px,2.6vw,34px);margin-bottom:16px;text-wrap:balance;}
+  .pf-callout p{font-size:15.5px;line-height:1.6;color:rgba(255,255,255,.75);margin-bottom:14px;}
+  .pf-callout .btn{margin-top:14px;}
+  .pf-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14);}
+  .pf-stat{background:var(--blue-deep);padding:22px 20px;}
+  .pf-stat b{display:block;font-size:34px;letter-spacing:-.01em;margin-bottom:6px;font-variant-numeric:tabular-nums;}
+  .pf-stat span{font-size:13px;color:rgba(255,255,255,.65);line-height:1.45;display:block;}
+  .pf-note{grid-column:1/-1;font-size:12.5px;color:rgba(255,255,255,.5);margin-top:-24px;}
+  @media (max-width:980px){.source-grid{grid-template-columns:1fr 1fr;}.pf-callout{grid-template-columns:1fr;padding:36px 28px;gap:32px;}.pf-note{margin-top:0;}}
+  @media (max-width:720px){.source-grid{grid-template-columns:1fr;}}
+  .feature-shot.stack{position:relative;overflow:visible;border:none;box-shadow:none;background:none;padding-bottom:40px;}
+  .feature-shot.stack .main{border-radius:6px;border:1px solid var(--line);box-shadow:0 20px 50px -24px rgba(10,10,10,.35);background:var(--paper);}
+  .feature-shot.stack .overlay{position:absolute;right:-24px;bottom:0;width:58%;border-radius:6px;border:1px solid var(--line);box-shadow:0 24px 48px -18px rgba(10,10,10,.3);background:var(--paper);}
+  @media (max-width:980px){.feature-shot.stack .overlay{right:0;width:70%;}}
+  @media (max-width:720px){.feature-shot.stack{padding-bottom:0;display:flex;flex-direction:column;gap:12px;}.feature-shot.stack .overlay{position:static;width:100%;}}
+  .pf-callout{display:block;}
+  .pf-top{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.14);}
+  .pf-top > *{min-width:0;}
+  .pf-top h3{margin-bottom:0;}
+  .pf-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:36px 0 32px;}
+  .pf-col{min-width:0;}
+  .pf-col h4{font-family:var(--mono);font-weight:400;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#7fa0ff;margin-bottom:18px;}
+  .pf-list{list-style:none;display:flex;flex-direction:column;gap:11px;}
+  .pf-list li{font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.82);display:flex;gap:11px;}
+  .pf-list li::before{content:'';flex:none;width:6px;height:6px;background:#7fa0ff;margin-top:7px;border-radius:1px;}
+  .pf-steps{list-style:none;counter-reset:pf;display:flex;flex-direction:column;gap:11px;}
+  .pf-steps li{counter-increment:pf;display:grid;grid-template-columns:28px 1fr;column-gap:10px;}
+  .pf-steps li::before{content:counter(pf,decimal-leading-zero);font-family:var(--mono);font-size:12.5px;color:#7fa0ff;padding-top:2px;grid-row:span 2;}
+  .pf-steps b{font-size:14.5px;color:#fff;}
+  .pf-steps span{font-size:14px;line-height:1.5;color:rgba(255,255,255,.7);}
+  .pf-callout .pf-trace{margin:18px 0 0;font-size:13.5px;color:rgba(255,255,255,.6);border-top:1px solid rgba(255,255,255,.14);padding-top:14px;}
+  .pf-callout > .btn{margin-top:0;}
+  @media (max-width:980px){.pf-top{grid-template-columns:1fr;gap:18px;}.pf-cols{grid-template-columns:1fr;gap:32px;}}
+  .who-groups{grid-template-columns:1fr 2fr;}
+  .who-group.ops{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;align-content:start;}
+  .who-group.ops h4{grid-column:1/-1;}
+  .who-group.ops .who-item:nth-of-type(2){border-top:none;}
+  @media (max-width:980px){.who-groups{grid-template-columns:1fr;}}
+  @media (max-width:720px){.who-group.ops{grid-template-columns:1fr;}.who-group.ops .who-item:nth-of-type(2){border-top:1px solid var(--line);}}
+  .logos{padding:36px 0;border-bottom:1px solid var(--line);}
+  .logos .wrap{display:flex;align-items:center;gap:40px;flex-wrap:wrap;}
+  .logos-label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-50);}
+  .logo-row{display:flex;gap:20px;flex-wrap:wrap;flex:1;}
+  .logo-slot{flex:1 1 160px;height:64px;border:1px dashed var(--ink-30);border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:var(--ink-50);}
+  .logo-slot span{font-size:17px;letter-spacing:.02em;}
+  .logo-slot em{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-30);}
+  section.logos{padding-top:36px;padding-bottom:36px;}
+  .route{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--paper);}
+  .route-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);}
+  .route-tabs button{font:inherit;text-align:left;background:var(--fog);border:0;border-top:3px solid transparent;padding:22px 28px;cursor:pointer;display:flex;flex-direction:column;gap:4px;color:var(--ink-50);transition:background .15s ease,color .15s ease;}
+  .route-tabs button + button{border-left:1px solid var(--line);}
+  .route-tabs button:hover{color:var(--ink);}
+  .route-tabs button[aria-selected="true"]{background:var(--paper);border-top-color:var(--blue);color:var(--ink);}
+  .route-tabs button:focus-visible{outline:2px solid var(--blue);outline-offset:-4px;}
+  .rt-k{font-size:19px;}
+  .rt-s{font-size:13.5px;color:var(--ink-50);}
+  .route-panel{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;padding:44px 44px 48px;align-items:start;}
+  .route-panel[hidden]{display:none;}
+  .route-panel > *{min-width:0;}
+  .rp-copy h3{font-size:clamp(24px,2.4vw,30px);margin-bottom:14px;text-wrap:balance;}
+  .rp-copy p{font-size:15.5px;line-height:1.6;color:var(--ink-70);margin-bottom:26px;}
+  .rp-tag{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);border:1px solid rgba(13,63,224,.3);padding:4px 9px;border-radius:2px;margin-bottom:16px;}
+  .rp-right{display:flex;flex-direction:column;gap:28px;}
+  .rp-sources{list-style:none;border-top:1px solid var(--line);}
+  .rp-sources li{display:flex;flex-direction:column;gap:3px;padding:16px 0;border-bottom:1px solid var(--line);}
+  .rp-sources b{font-size:16px;}
+  .rp-sources span{font-size:14px;color:var(--ink-70);line-height:1.5;}
+  .rp-steps{list-style:none;counter-reset:rp;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;}
+  .rp-steps li{counter-increment:rp;background:var(--fog);padding:14px 14px 16px;display:flex;flex-direction:column;gap:3px;}
+  .rp-steps li::before{content:counter(rp,decimal-leading-zero);font-family:var(--mono);font-size:11.5px;color:var(--blue);margin-bottom:4px;}
+  .rp-steps b{font-size:14.5px;}
+  .rp-steps span{font-size:12.5px;color:var(--ink-70);line-height:1.45;}
+  .route-foot{margin-top:22px;font-size:14.5px;color:var(--ink-70);}
+  @media (max-width:980px){.route-panel{grid-template-columns:1fr;gap:32px;padding:32px 28px;}.rp-steps{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.route-tabs button{padding:16px 16px;}.rt-k{font-size:16px;}.rt-s{display:none;}.route-panel{padding:26px 20px;}}
+  /* screenshot frames: one consistent plate for every product shot */
+  .feature-shot,.feature-shot.stack{position:relative;border:0;border-radius:10px;box-shadow:none;overflow:hidden;
+    background:linear-gradient(160deg,#e9eefc 0%,#dbe3fa 100%);padding:24px;}
+  .feature-row{grid-template-columns:.8fr 1.35fr;gap:56px;}
+  .feature-row:nth-of-type(even){grid-template-columns:1.35fr .8fr;}
+  .feature-shot::before{content:'';position:absolute;inset:0;background:url('/assets/hero-halftone.png') center/cover;opacity:.10;filter:grayscale(1);pointer-events:none;}
+  .feature-shot img{position:relative;border-radius:6px;border:1px solid rgba(8,33,92,.10);box-shadow:0 18px 40px -22px rgba(8,33,92,.45);background:#fff;}
+  .feature-shot.stack{padding:24px 24px 48px;}
+  .feature-shot.stack .main{border-radius:6px;border:1px solid rgba(8,33,92,.10);box-shadow:0 18px 40px -22px rgba(8,33,92,.45);}
+  .feature-shot.stack .overlay{right:20px;bottom:20px;width:56%;box-shadow:0 24px 48px -16px rgba(8,33,92,.45);}
+  .hero-card img{border-top:1px solid var(--line);}
+  @media (max-width:720px){.feature-shot,.feature-shot.stack{padding:16px;}.feature-shot.stack .overlay{position:static;width:100%;margin-top:12px;}}
+  .feature-shot.sched{padding:64px 24px 24px;}
+  .shot-tabs{position:absolute;top:18px;left:24px;display:flex;gap:2px;background:rgba(255,255,255,.75);border:1px solid rgba(8,33,92,.1);border-radius:999px;padding:3px;z-index:2;}
+  .shot-tabs button{font:inherit;font-family:var(--body);font-size:13px;font-weight:500;border:0;background:none;color:var(--ink-70);padding:6px 14px;border-radius:999px;cursor:pointer;}
+  .shot-tabs button[aria-selected="true"]{background:var(--ink);color:#fff;}
+  .shot-tabs button:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+  .feature-shot.sched .v[hidden]{display:none;}
+  .feature-shot.sched .detail{position:absolute;right:14px;bottom:14px;width:34%;box-shadow:0 24px 50px -14px rgba(8,33,92,.5);z-index:1;}
+  @media (max-width:720px){.feature-shot.sched{padding:60px 16px 16px;}.feature-shot.sched .detail{position:static;width:100%;margin-top:12px;}}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/Inter-Regular.woff2') format('woff2');}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('/assets/fonts/Inter-Medium.woff2') format('woff2');}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('/assets/fonts/Inter-SemiBold.woff2') format('woff2');}
+  /* ===== Brand type (Notion > Branding): PP Supply Sans for headlines, labels and numbers; Inter for body and UI ===== */
+  :root{
+    --display:'PP Supply Sans', 'Inter', sans-serif;
+    --body:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono:'PP Supply Sans', 'Inter', sans-serif;
+  }
+  body{font-feature-settings:'cv11','ss01';}
+  strong,b{font-weight:600;}
+  h1,h2,h3{font-weight:400;letter-spacing:-.01em;}
+  .feature-copy h3,.case-text h3,.rp-copy h3,.pf-callout h3,.team-why h2{font-family:var(--display);font-weight:400;}
+  .problem-card h3,.step h3,.who-item h5,.outcome h3,.source-card h3,.person h3{font-family:var(--body);font-weight:600;}
+  .who-item h5,.outcome h3,.problem-card h3{letter-spacing:-.01em;}
+  .rt-k,.rp-sources b,.rp-steps b,.pf-steps b{font-weight:600;}
+  .lead,p{letter-spacing:0;}
+  .btn{font-weight:500;}
+  .navlinks a{font-weight:500;}
+  .testi p{font-family:var(--body);font-weight:400;}
+  .eyebrow,.feature-copy .tag,.clause,.who-group h4,.hero-card-tag,.testi cite,.logos-label,.rp-tag,.person .role,.stat span{font-family:var(--mono);text-transform:uppercase;}
+  .stat span{font-size:11.5px;letter-spacing:.08em;}
+  .clause{letter-spacing:.1em;font-size:11px;}
+  .case-cap,.foot-bottom,.focus{font-family:var(--body);}
+  .stat b,.avatar span{font-family:var(--mono);}
 </style>
 </head>
 <body>
 
+
+
 <header>
   <nav>
-    <a href="#" class="logo"><img src="assets/logo-lockup-blue.png" alt="Prospero" /></a>
+    <a href="#" class="logo"><img src="/assets/logo-lockup-blue.png" alt="Prospero" /></a>
     <div class="navlinks">
       <a href="#how">How it works</a>
       <a href="#features">Product</a>
       <a href="#who">Who it's for</a>
       <a href="#outcomes">Outcomes</a>
       <a href="/insights/">Insights</a>
+      <a href="/about">About</a>
     </div>
     <div class="navcta">
       <a href="/book-demo" class="btn btn-primary">Book a demo</a>
@@ -350,18 +480,18 @@
   <div class="hero-grid">
     <div>
       <div class="eyebrow">Building maintenance intelligence</div>
-      <h1>Your O&amp;M manuals.<br>Finally <em>actionable.</em></h1>
-      <p class="lead">Prospero reads your O&amp;M documentation and generates a complete, traceable maintenance programme — asset register, compliance schedule and lifecycle forecasting included — in minutes, not months.</p>
+      <h1>Your building documents.<br>Finally <em>actionable.</em></h1>
+      <p class="lead">Prospero reads the documentation you already have, from contractor asset registers and product data sheets to long-term maintenance plans and O&amp;M manuals, and turns it into a complete, traceable maintenance programme in minutes, not months.</p>
       <div class="hero-ctas">
         <a href="/book-demo" class="btn btn-primary">Book a demo</a>
         <a href="#how" class="btn btn-ghost">See how it works ↓</a>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-photo"><img src="assets/hero-halftone.png" alt="Halftone photograph of commercial building facades" /></div>
+      <div class="hero-photo"><img src="/assets/hero-halftone.png" alt="Halftone photograph of commercial building facades" /></div>
       <div class="hero-card">
         <div class="hero-card-tag">Live maintenance schedule</div>
-        <img src="assets/screen-maintenance-schedule.png" alt="Prospero maintenance schedule showing Façade tasks, frequency and next due dates" />
+        <img src="/assets/shot-hero-schedule.png" alt="Prospero maintenance schedule showing façade joint sealant tasks with frequency, next due date and source page references" />
       </div>
     </div>
   </div>
@@ -379,18 +509,18 @@
     <div class="section-head reveal">
       <div class="eyebrow">The problem</div>
       <h2>Buildings are handed over.<br>The documentation isn't.</h2>
-      <p>Every building comes with thousands of pages of O&amp;M documentation that determine long-term maintenance obligations. Almost none of it is acted on systematically.</p>
+      <p>Every building's maintenance obligations are on paper somewhere: in the handover manuals for a new build, in council files and contractor records for an older one. Almost none of it is acted on systematically.</p>
     </div>
     <div class="problem-grid reveal">
       <div class="problem-card">
         <div class="clause"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v9M12 13v9M4 8l6 4M20 8l-6 4M4 16l6-4M20 16l-6-4"/></svg>Time</div>
-        <h3>40–80 hours per manual set</h3>
-        <p>Extracting maintenance tasks from a single O&amp;M manual set consumes specialist time that should be spent on risk-critical work — not reading PDFs.</p>
+        <h3>40–80 hours per building</h3>
+        <p>Extracting maintenance tasks from a single building's documentation consumes specialist time that should be spent on risk-critical work, not reading PDFs.</p>
       </div>
       <div class="problem-card">
         <div class="clause"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v9M12 13v9M4 8l6 4M20 8l-6 4M4 16l6-4M20 16l-6-4"/></svg>Coverage</div>
         <h3>BWoF covers the regulated minimum</h3>
-        <p>Facades, membranes, envelope systems — everything outside the compliance scope sits entirely unmanaged, with no plan and no visibility.</p>
+        <p>Facades, membranes and envelope systems sit outside the compliance scope entirely, with no plan and no visibility.</p>
       </div>
       <div class="problem-card">
         <div class="clause"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v9M12 13v9M4 8l6 4M20 8l-6 4M4 16l6-4M20 16l-6-4"/></svg>Scale</div>
@@ -406,80 +536,12 @@
   </div>
 </section>
 
-<section id="how" class="section-fog">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">How it works</div>
-      <h2>From PDF to maintenance plan in under five minutes.</h2>
-    </div>
-    <div class="steps reveal">
-      <div class="step"><span class="num">01</span><h3>Upload your O&amp;M manuals</h3><p>Drag and drop PDFs directly into Prospero. No formatting required.</p></div>
-      <div class="step"><span class="num">02</span><h3>Prospero analyses and structures</h3><p>Every specification and interval is read, organised by asset, and flagged for compliance and warranty relevance.</p></div>
-      <div class="step"><span class="num">03</span><h3>Confirm and clarify</h3><p>Review specified system tags and shape the output to fit how your organisation works.</p></div>
-      <div class="step active-step"><span class="num">04</span><h3>Receive a live maintenance plan</h3><p>Organised by asset, component and task — complete with compliance and warranty tagging, ready to action.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="features">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Product</div>
-      <h2>Everything that was specified. Nothing left behind.</h2>
-      <p>Three views into a live maintenance programme — generated directly from your own O&amp;M manuals, not a template.</p>
-    </div>
-
-    <div class="feature-row reveal">
-      <div class="feature-copy">
-        <span class="tag">New — Lifecycle forecasting</span>
-        <h3>A complete asset register, not just a task list</h3>
-        <p class="desc">Every asset in the building is catalogued — down to the tag, location and serial number — with the lifecycle data your capital plan actually needs.</p>
-        <ul class="feature-bullets">
-          <li>Expected useful life and installed date tracked per asset, not per building</li>
-          <li>Condition, quantity and estimated replacement cost roll up into a portfolio-wide capex forecast</li>
-          <li>Search any asset type, tag or location across every property in seconds</li>
-        </ul>
-      </div>
-      <div class="feature-shot"><img src="assets/screen-asset-register.png" alt="Prospero asset register showing Air Conditioning Units with location, install date and expected useful life" /></div>
-    </div>
-
-    <div class="feature-row reveal">
-      <div class="feature-copy">
-        <span class="tag">Compliance &amp; warranty tagging</span>
-        <h3>Every warranty and compliance obligation, scheduled</h3>
-        <p class="desc">Tasks are pulled from manufacturer specifications with the correct frequency already set — and split cleanly by what's legally required and what protects your warranty.</p>
-        <ul class="feature-bullets">
-          <li>Frequencies — quarterly, biannual, as-needed — set automatically from the source manual</li>
-          <li>Compliance and Warranty tags applied to every task, with next-due dates and one-click completion</li>
-          <li>Full history retained against each task for audit and handover</li>
-        </ul>
-      </div>
-      <div class="feature-shot"><img src="assets/screen-maintenance-schedule.png" alt="Prospero maintenance schedule showing Façade tasks tagged Warranty with next due dates" /></div>
-    </div>
-
-    <div class="feature-row reveal">
-      <div class="feature-copy">
-        <span class="tag">Traceable to source</span>
-        <h3>Tasks tied to your Specified Systems</h3>
-        <p class="desc">Each task carries its Specified System tag, so compliance items line up directly against the systems your IQPs are accountable for — and every entry cites the exact page it came from.</p>
-        <ul class="feature-bullets">
-          <li>SS-number tagging maps straight onto your building's compliance schedule</li>
-          <li>Add, edit or remove tasks per asset type as scope or contractors change</li>
-          <li>Every task links back to a page reference in the source O&amp;M manual</li>
-        </ul>
-      </div>
-      <div class="feature-shot"><img src="assets/screen-task-editor.png" alt="Prospero task editor showing Air Conditioning Units tagged SS 9 with quarterly compliance checks" /></div>
-    </div>
-
-  </div>
-</section>
-
 <section class="gap-section">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">The compliance gap</div>
       <h2>Your compliance schedule is not your maintenance plan.</h2>
-      <p>BWoF covers the regulated minimum. The assets that drive your largest costs and liabilities sit entirely outside it — unmanaged by default.</p>
+      <p>BWoF covers the regulated minimum. The assets that drive your largest costs and liabilities sit entirely outside it, unmanaged by default.</p>
     </div>
     <div class="gap-diagram reveal">
       <svg viewBox="0 0 1000 240" xmlns="http://www.w3.org/2000/svg">
@@ -521,11 +583,151 @@
           <line x1="-5" y1="-5" x2="5" y2="5"/>
           <line x1="-5" y1="5" x2="5" y2="-5"/>
         </g>
-        <text x="600" y="228" fill="rgba(255,255,255,.75)" font-family="PP Supply Sans, sans-serif" font-size="13.5" text-anchor="middle" letter-spacing="0.02em">THE GAP — WHERE LIABILITY ACCUMULATES, UNMANAGED</text>
+        <text x="600" y="228" fill="rgba(255,255,255,.75)" font-family="PP Supply Sans, sans-serif" font-size="13.5" text-anchor="middle" letter-spacing="0.02em">THE GAP · WHERE LIABILITY ACCUMULATES, UNMANAGED</text>
       </svg>
     </div>
-    <p class="gap-note reveal">That gap is where deferred maintenance liability accumulates — silently, until it surfaces. Prospero shows the full picture: structured, traceable, complete.</p>
+    <p class="gap-note reveal">That gap is where deferred maintenance liability builds up silently, until it surfaces. Prospero shows the full picture: structured, traceable, complete.</p>
     <a href="/book-demo" class="btn btn-onblue reveal">Book a demo</a>
+  </div>
+</section>
+
+<section id="how" class="section-fog">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Where you start</div>
+      <h2>New build or forty years old, we start from what you've got.</h2>
+      <p>Pick the route that matches your building.</p>
+    </div>
+
+    <div class="route reveal">
+      <div class="route-tabs" role="tablist" aria-label="Choose your building type">
+        <button type="button" role="tab" id="tab-new" aria-controls="panel-new" aria-selected="true">
+          <span class="rt-k">New or recent build</span><span class="rt-s">You have a handover pack</span>
+        </button>
+        <button type="button" role="tab" id="tab-old" aria-controls="panel-old" aria-selected="false" tabindex="-1">
+          <span class="rt-k">Existing building</span><span class="rt-s">The handover pack is missing or thin</span>
+        </button>
+      </div>
+
+      <div class="route-panel" role="tabpanel" id="panel-new" aria-labelledby="tab-new">
+        <div class="rp-copy">
+          <h3>Upload your handover documents.</h3>
+          <p>O&amp;M manuals and data sheets hold every service interval and warranty condition for the building. Upload them and Prospero builds your maintenance plan in under five minutes.</p>
+          <a href="/book-demo" class="btn btn-primary">Book a demo</a>
+        </div>
+        <div class="rp-right">
+          <ul class="rp-sources">
+            <li><b>O&amp;M manuals</b><span>Full handover sets or partial ones</span></li>
+            <li><b>Product data sheets</b><span>Maintenance intervals and warranty conditions for each product</span></li>
+            <li><b>Contractor asset registers</b><span>From your HVAC, fire, lift and electrical contractors</span></li>
+          </ul>
+          <ol class="rp-steps">
+            <li><b>Upload</b><span>Drag and drop, no reformatting</span></li>
+            <li><b>Analyse</b><span>Every interval read and organised by asset</span></li>
+            <li><b>Confirm</b><span>Review system tags and shape the output</span></li>
+            <li><b>Go live</b><span>Tagged for compliance and warranty, ready to action</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="route-panel" role="tabpanel" id="panel-old" aria-labelledby="tab-old" hidden>
+        <div class="rp-copy">
+          <span class="rp-tag">New Zealand service</span>
+          <h3>We'll read your council property file.</h3>
+          <p>Older buildings rarely have a usable O&amp;M manual, but every one has a council property file: decades of consents, permits and compliance records. Send it to us and we'll do the reading.</p>
+          <a href="/book-demo" class="btn btn-primary">Ask about a property file review</a>
+        </div>
+        <div class="rp-right">
+          <ul class="rp-sources">
+            <li><b>Council property file</b><span>Consents, plans, fire reports, compliance schedule and historic permits</span></li>
+            <li><b>Existing LTMPs and condition reports</b><span>Turned from a static document into a live schedule</span></li>
+            <li><b>Contractor asset registers</b><span>Reconciled into one asset list</span></li>
+          </ul>
+          <ol class="rp-steps">
+            <li><b>Convert</b><span>Scans become searchable text</span></li>
+            <li><b>Triage</b><span>Find the documents that matter</span></li>
+            <li><b>Extract</b><span>Assets, tasks and fire separations</span></li>
+            <li><b>Check</b><span>Gaps flagged for a site visit</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <p class="route-foot reveal">Either way, you end up with the same live asset register and maintenance programme, with every item linked to its source document.</p>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Product</div>
+      <h2>Everything that was specified. Nothing left behind.</h2>
+      <p>Four views into a live maintenance programme, generated directly from your own building documentation rather than a template.</p>
+    </div>
+
+    <div class="feature-row reveal">
+      <div class="feature-copy">
+        <span class="tag">Asset register</span>
+        <h3>A complete asset register, not just a task list</h3>
+        <p class="desc">Every asset in the building is catalogued down to the tag, location and serial number, with the lifecycle data your capital plan actually needs.</p>
+        <ul class="feature-bullets">
+          <li>Expected useful life and installed date tracked per asset, not per building</li>
+          <li>Condition, quantity and estimated replacement cost roll up into a portfolio-wide capex forecast</li>
+          <li>Search any asset type, tag or location across every property in seconds</li>
+        </ul>
+      </div>
+      <div class="feature-shot"><img src="/assets/shot-asset-register.png" alt="Prospero asset register showing backflow preventers with tag, location, serial, condition, install date, expected useful life and replacement forecast" /></div>
+    </div>
+
+    <div class="feature-row reveal">
+      <div class="feature-copy">
+        <span class="tag">Compliance &amp; warranty tagging</span>
+        <h3>Every warranty and compliance obligation, scheduled</h3>
+        <p class="desc">Tasks are pulled from manufacturer specifications with the correct frequency already set, and split cleanly by what's legally required and what protects your warranty.</p>
+        <ul class="feature-bullets">
+          <li>Frequencies (quarterly, biannual, as-needed) set automatically from the source document</li>
+          <li>Compliance and Warranty tags applied to every task, with next-due dates and one-click completion</li>
+          <li>Full history retained against each task for audit and handover</li>
+        </ul>
+      </div>
+      <div class="feature-shot sched">
+        <div class="shot-tabs" role="tablist" aria-label="Schedule view">
+          <button type="button" role="tab" aria-selected="true" data-v="cal">Calendar</button>
+          <button type="button" role="tab" aria-selected="false" data-v="up">Upcoming</button>
+        </div>
+        <img class="v" data-v="cal" src="/assets/shot-calendar.png" alt="Prospero maintenance calendar for October 2026, colour-coded overdue, due soon, planned and recorded visits, with Compliance and Warranty filters" />
+        <img class="v" data-v="up" src="/assets/shot-upcoming.png" alt="Upcoming maintenance visits filtered to warranty items, grouped by month with overdue and due-soon status" hidden />
+        <img class="detail" src="/assets/shot-visit-detail.png" alt="Visit detail for a biannual façade visit, with each task marked done, skipped or left" />
+      </div>
+    </div>
+
+    <div class="feature-row reveal">
+      <div class="feature-copy">
+        <span class="tag">Traceable to source</span>
+        <h3>Tasks tied to your Specified Systems</h3>
+        <p class="desc">Each task carries its Specified System tag, so compliance items line up directly against the systems your IQPs are accountable for, and every entry cites the exact page it came from.</p>
+        <ul class="feature-bullets">
+          <li>SS-number tagging maps straight onto your building's compliance schedule</li>
+          <li>Add, edit or remove tasks per asset type as scope or contractors change</li>
+          <li>Every task links back to a page reference in its source document</li>
+        </ul>
+      </div>
+      <div class="feature-shot"><img src="/assets/shot-compliance.png" alt="Compliance view of the maintenance schedule, with every asset grouped by discipline and tagged with its Specified System number" /></div>
+    </div>
+
+    <div class="feature-row reveal">
+      <div class="feature-copy">
+        <span class="tag">New · 30-year LTMP</span>
+        <h3>A long-term maintenance plan that updates itself</h3>
+        <p class="desc">Replacement costs roll up from the asset register into a 30-year forecast, inflated and tested against your sinking fund. When an asset changes, the plan changes with it.</p>
+        <ul class="feature-bullets">
+          <li>Set annual contributions, opening balance and inflation, then solve for no annual shortfall</li>
+          <li>Break the forecast down by discipline: mechanical, electrical, fire, façade, vertical transport and more</li>
+          <li>Every replacement line traces back to its asset, install date, condition and source</li>
+        </ul>
+      </div>
+      <div class="feature-shot"><img src="/assets/shot-ltmp-forecast.png" alt="Prospero 30-year replacement forecast in stacked view, showing replacement spend by discipline each year with fund settings" /></div>
+    </div>
+
   </div>
 </section>
 
@@ -540,26 +742,34 @@
         <h4>Delivery side</h4>
         <div class="who-item">
           <h5>Property Developers</h5>
-          <p>Delivering new assets and needing operational readiness from day one — not months spent deciphering handover documentation.</p>
+          <p>Delivering new assets and needing operational readiness from day one, not months spent deciphering handover documentation.</p>
         </div>
         <div class="who-item">
           <h5>Main Contractors</h5>
-          <p>Responsible for structured, usable handovers — not dumping thousands of pages of O&amp;Ms, warranties and manuals at practical completion.</p>
+          <p>Responsible for structured, usable handovers, not dumping thousands of pages of O&amp;Ms, warranties and manuals at practical completion.</p>
         </div>
       </div>
-      <div class="who-group">
+      <div class="who-group ops">
         <h4>Operations side</h4>
         <div class="who-item">
           <h5>Property Managers</h5>
-          <p>Inheriting assets with fragmented documentation, unread O&amp;M manuals and no clear operational maintenance framework.</p>
+          <p>Inheriting assets with fragmented documentation, contractor registers that don't line up and no clear operational maintenance framework.</p>
         </div>
         <div class="who-item">
           <h5>Asset Managers</h5>
           <p>Managing portfolios where maintenance visibility, compliance obligations and lifecycle planning directly influence capital outcomes.</p>
         </div>
         <div class="who-item">
-          <h5>Facility Managers</h5>
+          <h5>Facility &amp; Building Managers</h5>
           <p>Responsible for day-to-day maintenance and compliance, but often operating from incomplete or unstructured asset information.</p>
+        </div>
+        <div class="who-item">
+          <h5>Body Corporate Managers</h5>
+          <p>Required to keep a long-term maintenance plan that's usually a static PDF, out of date soon after it's written. Prospero keeps it live.</p>
+        </div>
+        <div class="who-item">
+          <h5>Owners &amp; Investors</h5>
+          <p>Buying or holding existing buildings with no handover pack. We start from the council property file and show what you actually own.</p>
         </div>
       </div>
     </div>
@@ -570,7 +780,7 @@
   <div class="wrap">
     <div class="case-head reveal">
       <div class="section-head" style="margin-bottom:0;">
-        <div class="eyebrow">Case study — 40m office building</div>
+        <div class="eyebrow">Case study · 40m office building</div>
         <h2>What one Facilities Manager found on his first building.</h2>
       </div>
     </div>
@@ -578,24 +788,24 @@
     <div class="case-block reveal">
       <div class="case-text">
         <h3>A missing pump contract, found in 20 minutes</h3>
-        <p>Ingesting the O&amp;M manual surfaced that the sewer and stormwater pumping systems had no service contract in place at all — they simply weren't covered by the incumbent contractor's scope.</p>
+        <p>Ingesting the O&amp;M manual surfaced that the sewer and stormwater pumping systems had no service contract in place at all. They simply weren't covered by the incumbent contractor's scope.</p>
         <blockquote>"I was able to get that email together in about 20 minutes instead of spending half a day going through the manual."<cite>Senior Facilities Manager</cite></blockquote>
       </div>
       <div>
-        <div class="case-img"><img src="case-study/before-no-contractor.png" alt="Prospero task list for the Sewer Pumping System with no contractor assigned" /></div>
-        <div class="case-cap">Before: 20 tasks flagged across 5 components — no contractor assigned.</div>
+        <div class="case-img"><img src="/case-study/before-no-contractor.png" alt="Prospero task list for the Sewer Pumping System with no contractor assigned" /></div>
+        <div class="case-cap">Before: 20 tasks flagged across 5 components, with no contractor assigned.</div>
       </div>
     </div>
 
     <div class="case-block reveal">
       <div class="case-text">
         <h3>The feature he rates most highly: Compliance vs. Warranty</h3>
-        <p>Automatic tagging separates legally-required items — like annual backflow testing under NZ BWoF — from manufacturer warranty conditions that are easy to lose track of, such as facade and roof checks.</p>
+        <p>Automatic tagging separates legally required items, like annual backflow testing under NZ BWoF, from manufacturer warranty conditions that are easy to lose track of, such as facade and roof checks.</p>
         <blockquote>"If I miss those, I could lose my job. So Prospero making this easier means I want this on all my buildings."<cite>Senior Facilities Manager</cite></blockquote>
       </div>
       <div>
-        <div class="case-img"><img src="case-study/facade-warranty-overdue.png" alt="Facade and roof checks flagged as overdue under the Sto Render System warranty" /></div>
-        <div class="case-cap">Façade and roof checks under warranty — flagged and overdue.</div>
+        <div class="case-img"><img src="/case-study/facade-warranty-overdue.png" alt="Facade and roof checks flagged as overdue under the Sto Render System warranty" /></div>
+        <div class="case-cap">Façade and roof checks under warranty, flagged and overdue.</div>
       </div>
     </div>
   </div>
@@ -608,9 +818,9 @@
       <h2>The outcomes that matter to your portfolio.</h2>
     </div>
     <div class="outcomes reveal">
-      <div class="outcome"><h3>Predictable capital expenditure</h3><p>Proactive schedules eliminate reactive capex spikes — portfolio costs become forecastable.</p></div>
+      <div class="outcome"><h3>Predictable capital expenditure</h3><p>Proactive schedules eliminate reactive capex spikes, so portfolio costs become forecastable.</p></div>
       <div class="outcome"><h3>Protected asset value at sale</h3><p>Auditable maintenance records remove the largest discount applied during due diligence.</p></div>
-      <div class="outcome"><h3>Eliminated liability exposure</h3><p>Every obligation is documented, tracked and attributable — the audit trail is already there.</p></div>
+      <div class="outcome"><h3>Eliminated liability exposure</h3><p>Every obligation is documented, tracked and attributable, so the audit trail is already there.</p></div>
       <div class="outcome"><h3>Scalable across your portfolio</h3><p>New developments and acquisitions onboard in hours. Institutional knowledge becomes structured data.</p></div>
     </div>
   </div>
@@ -624,7 +834,7 @@
         <cite>A construction handover team</cite>
       </div>
       <div class="testi">
-        <p>"At least once a year we would void warranties on our buildings — simply because we did not have the data readily available. Using Prospero has been a game changer."</p>
+        <p>"At least once a year we would void warranties on our buildings, simply because we did not have the data readily available. Using Prospero has been a game changer."</p>
         <cite>Retirement sector client</cite>
       </div>
     </div>
@@ -643,17 +853,17 @@
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <img src="assets/logo-lockup-dark.png" alt="Prospero" />
+      <img src="/assets/logo-lockup-dark.png" alt="Prospero" />
       <div class="foot-links">
         <a href="#how">How it works</a>
         <a href="#features">Product</a>
         <a href="#who">Who it's for</a>
         <a href="/insights/">Insights</a>
+        <a href="/about">About</a>
         <a href="/book-demo">Book a demo</a>
       </div>
     </div>
     <div class="foot-contact">
-      <a href="mailto:tony@buildprospero.com">tony@buildprospero.com</a>
       <a href="tel:+64276658998">027 665 8998</a>
     </div>
     <div class="foot-bottom" style="margin-top:20px;">
@@ -684,5 +894,19 @@
   }
 </script>
 
-</body>
-</html>
+<script>
+  (function(){
+    var tabs=[].slice.call(document.querySelectorAll('.route-tabs [role=tab]'));
+    function sel(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});}
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){sel(t);});
+      t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];sel(n);n.focus();e.preventDefault();}});
+    });
+  })();
+</script>
+<script>
+  (function(){var w=document.querySelector('.feature-shot.sched');if(!w)return;var bs=[].slice.call(w.querySelectorAll('.shot-tabs button'));
+    bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-selected',x===b);});
+      [].forEach.call(w.querySelectorAll('img.v'),function(im){im.hidden=im.getAttribute('data-v')!==b.getAttribute('data-v');});});});})();
+</script>
+</body></html>
